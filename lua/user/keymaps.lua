@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
-map("n", "<Space>", "10j")
-map("n", "<Backspace>", "10k")
+map({"n", "v"}, "<Space>", "10j")
+map({"n", "v"}, "<Backspace>", "10k")
 map("n", "<C-H>", "<C-W>h")
 map("n", "<C-J>", "<C-W>j")
 map("n", "<C-K>", "<C-W>k")
