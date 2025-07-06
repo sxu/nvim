@@ -1,8 +1,20 @@
 return {
+  -- {
+  --   "sainnhe/everforest",
+  --   config = function()
+  --     vim.opt.background = "dark"
+  --     vim.g.everforest_background = "hard"
+  --     vim.cmd.colorscheme("everforest")
+  --   end,
+  -- },
   {
-    "ellisonleao/gruvbox.nvim",
+    "sainnhe/gruvbox-material",
     config = function()
-      vim.cmd.colorscheme("gruvbox")
+      vim.opt.background = "dark"
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_foreground = "material"
+      -- vim.g.gruvbox_material_disable_italic_comment = "material"
+      vim.cmd.colorscheme("gruvbox-material")
     end,
   },
 }
