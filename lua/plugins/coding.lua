@@ -6,8 +6,7 @@ return {
     build = ":TSUpdate",
   },
   {
-    "Saghen/blink.cmp",
-    version = '1.*',
-    opts = {},
+    "numToStr/Comment.nvim",
+    opts = {}
   },
 }
