@@ -1,12 +1,4 @@
 return {
-  -- {
-  --   "sainnhe/everforest",
-  --   config = function()
-  --     vim.opt.background = "dark"
-  --     vim.g.everforest_background = "hard"
-  --     vim.cmd.colorscheme("everforest")
-  --   end,
-  -- },
   {
     "sainnhe/gruvbox-material",
     config = function()
@@ -16,5 +8,13 @@ return {
       -- vim.g.gruvbox_material_disable_italic_comment = "material"
       vim.cmd.colorscheme("gruvbox-material")
     end,
+  },
+  {
+    "sainnhe/everforest",
+    -- config = function()
+    --   vim.opt.background = "dark"
+    --   vim.g.everforest_background = "hard"
+    --   vim.cmd.colorscheme("everforest")
+    -- end,
   },
 }
