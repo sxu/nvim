@@ -4,12 +4,38 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {},
     keys = {
-      { "<Leader>F", ":FzfLua " },
-      { "<Leader>f", "<Cmd>FzfLua files<CR>" },
-      { "<Leader>b", "<Cmd>FzfLua buffers<CR>" },
-      { "<Leader>/", "<Cmd>FzfLua blines<CR>" },
-      { "<Leader>:", "<Cmd>FzfLua command_history<CR>" },
-      { "<Leader>?", "<Cmd>FzfLua search_history<CR>" },
+      { "<Leader>F", mode = { "n" }, ":FzfLua " },
+      { "<Leader>f", mode = { "n" }, "<Cmd>FzfLua files<CR>" },
+      { "<Leader>b", mode = { "n" }, "<Cmd>FzfLua buffers<CR>" },
+      { "<Leader>/", mode = { "n" }, "<Cmd>FzfLua blines<CR>" },
+      { "<Leader>:", mode = { "n" }, "<Cmd>FzfLua command_history<CR>" },
+      { "<Leader>?", mode = { "n" }, "<Cmd>FzfLua search_history<CR>" },
+    },
+  },
+  {
+  "folke/snacks.nvim",
+    lazy = false,
+    opts = {
+      -- bigfile = { enabled = true },
+      -- dashboard = { enabled = true },
+      -- explorer = { enabled = true },
+      -- indent = { enabled = true },
+      -- input = { enabled = true },
+      picker = { enabled = true },
+      -- notifier = { enabled = true },
+      -- quickfile = { enabled = true },
+      -- scope = { enabled = true },
+      -- scroll = { enabled = true },
+      -- statuscolumn = { enabled = true },
+      -- words = { enabled = true },
+    },
+    keys = {
+      -- { "<Leader>f", function() Snacks.picker.files() end },
+      -- { "<Leader>b", function() Snacks.picker.buffers() end },
+      { "<Leader>t", mode = { "n" }, function() Snacks.picker.treesitter() end },
+      { "<Leader>T", mode = { "n" }, ":lua Snacks.picker.()<Left><Left>" },
+      -- { "<Leader>:", function() Snacks.picker.command_history() end },
+      -- { "<Leader>/", function() Snacks.picker.search_history() end },
     },
   },
   {
@@ -40,12 +66,13 @@ return {
     "Saghen/blink.cmp",
     version = '1.*',
     opts = {
-      keymap = { preset = "enter" },
+      completion = {
+        list = { selection = { preselect = false, auto_insert = true } }
+      }
     },
   },
   {
     "windwp/nvim-autopairs",
-    event = "InsertEnter",
     opts = {},
   },
 }
