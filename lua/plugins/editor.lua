@@ -3,6 +3,7 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {},
+    cmd = { "FzfLua" },
     keys = {
       { "<Leader>F", mode = { "n" }, ":FzfLua " },
       { "<Leader>f", mode = { "n" }, "<Cmd>FzfLua files<CR>" },
@@ -59,16 +60,23 @@ return {
     "stevearc/oil.nvim",
     opts = { default_file_explorer = true },
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
     lazy = false,
+    opts = {
+      keymaps = {
+        ["q"] = { "actions.close", mode = "n" },
+      },
+    },
+    keys = {
+      { "<Leader>E", mode = { "n" }, "<Cmd>Oil --float %:p:h<CR>" },
+    },
   },
   {
     "Saghen/blink.cmp",
     version = '1.*',
     opts = {
       completion = {
-        list = { selection = { preselect = false, auto_insert = true } }
-      }
+        list = { selection = { preselect = false, auto_insert = true } },
+      },
     },
   },
   {
