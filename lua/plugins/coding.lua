@@ -13,7 +13,10 @@ return {
           "python",
           "vim",
           "vimdoc",
-        }
+        },
+        highlight = {
+          enable = true,
+        },
       })
     end,
   },

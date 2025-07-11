@@ -3,10 +3,24 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {},
+    keys = {
+      { "<Leader>F", ":FzfLua " },
+      { "<Leader>f", "<Cmd>FzfLua files<CR>" },
+      { "<Leader>b", "<Cmd>FzfLua buffers<CR>" },
+      { "<Leader>/", "<Cmd>FzfLua blines<CR>" },
+      { "<Leader>:", "<Cmd>FzfLua command_history<CR>" },
+      { "<Leader>?", "<Cmd>FzfLua search_history<CR>" },
+    },
   },
   {
     "folke/flash.nvim",
-    opts = {},
+    opts = {
+      modes = {
+        char = {
+          highlight = { backdrop = false },
+        },
+      },
+    },
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
@@ -43,11 +57,16 @@ return {
         },
       },
     },
+    keys = {
+      { "<Leader>E", function() require('nvim-tree.api').tree.open({path = vim.fn.expand('%:p:h')}) end },
+    },
   },
   {
     "Saghen/blink.cmp",
     version = '1.*',
-    opts = {},
+    opts = {
+      keymap = { preset = "enter" },
+    },
   },
   {
     "windwp/nvim-autopairs",
