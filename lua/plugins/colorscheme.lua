@@ -3,7 +3,7 @@ return {
     "sainnhe/gruvbox-material",
     init = function()
       vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_foreground = "original"
+      vim.g.gruvbox_material_foreground = "mixed"
     end,
     config = function()
       vim.cmd.colorscheme("gruvbox-material")
