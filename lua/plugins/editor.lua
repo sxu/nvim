@@ -29,6 +29,7 @@ return {
               list = {
                 keys = {
                   ["-"] = "explorer_up",
+                  ["C"] = "tcd",
                 },
               },
             },
@@ -97,11 +98,16 @@ return {
   -- },
   {
     "Saghen/blink.cmp",
-    version = '1.*',
+    version = "1.*",
     opts = {
-      completion = {
-        list = { selection = { preselect = false, auto_insert = true } },
+      -- completion = {
+      --   list = { selection = { preselect = false, auto_insert = true } },
+      -- },
+      keymap = {
+        preset = "default",
+        ["<C-l>"] = { "select_and_accept" },
       },
+      cmdline = { keymap = { preset = "inherit"} },
     },
   },
   {

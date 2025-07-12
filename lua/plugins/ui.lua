@@ -2,10 +2,12 @@ return {
   {
     "akinsho/bufferline.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
-    init = function()
-      vim.opt.termguicolors = true
-    end,
-    opts = {},
+    opts = {
+      options = {
+        separator_style = "slant",
+        show_buffer_close_icons = false,
+      },
+    },
   },
   {
     "nvim-lualine/lualine.nvim",

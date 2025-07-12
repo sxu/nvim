@@ -8,3 +8,4 @@ opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.mouse = ""
 opt.number = true
 opt.signcolumn = "number"
+opt.termguicolors = true
