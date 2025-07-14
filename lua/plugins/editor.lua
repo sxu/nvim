@@ -14,7 +14,7 @@ return {
   --   },
   -- },
   {
-  "folke/snacks.nvim",
+    "folke/snacks.nvim",
     lazy = false,
     opts = {
       -- bigfile = { enabled = true },
@@ -24,6 +24,14 @@ return {
       -- input = { enabled = true },
       picker = {
         sources = {
+          command_history = {
+            sort = { fields = { "idx", "score:desc"} },
+          },
+          search_history = {
+            sort = { fields = { "idx", "score:desc"} },
+          },
+          lines = { layout = { preset = "default" , preview = true} },
+          pickers = { layout = { preview = false} },
           explorer = {
             win = {
               list = {
@@ -44,9 +52,11 @@ return {
       -- words = { enabled = true },
     },
     keys = {
-      { "<Leader>P", mode = { "n" }, ":lua Snacks.picker.()<Left><Left>" },
+      { "<Leader>p", mode = { "n" }, function() Snacks.picker.pickers() end },
       { "<Leader>f", mode = { "n" }, function() Snacks.picker.files() end },
       { "<Leader>b", mode = { "n" }, function() Snacks.picker.buffers() end },
+      { "<Leader>l", mode = { "n" }, function() Snacks.picker.lines() end },
+      { "<Leader>g", mode = { "n" }, function() Snacks.picker.grep_buffers() end },
       { "<Leader>s", mode = { "n" }, function() Snacks.picker.lsp_symbols() end },
       { "<Leader>:", mode = { "n" }, function() Snacks.picker.command_history() end },
       { "<Leader>/", mode = { "n" }, function() Snacks.picker.search_history() end },
@@ -69,9 +79,7 @@ return {
     "folke/flash.nvim",
     opts = {
       modes = {
-        char = {
-          highlight = { backdrop = false },
-        },
+        char = { enabled = false },
       },
     },
     keys = {
