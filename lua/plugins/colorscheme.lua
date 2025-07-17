@@ -18,4 +18,13 @@ return {
     --   vim.cmd.colorscheme("everforest")
     -- end,
   },
+  {
+    "sainnhe/sonokai",
+    init = function()
+      vim.g.sonokai_style = "default"
+    end,
+    -- config = function()
+    --   vim.cmd.colorscheme("sonokai")
+    -- end,
+  },
 }
