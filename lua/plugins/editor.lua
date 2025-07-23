@@ -51,7 +51,7 @@ return {
       -- },
       keymap = {
         preset = "default",
-        ["<C-l>"] = { "select_and_accept" },
+        ["<Right>"] = { "select_and_accept" },
       },
       cmdline = { keymap = { preset = "inherit"} },
     },
