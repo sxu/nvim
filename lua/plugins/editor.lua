@@ -51,7 +51,7 @@ return {
       -- },
       keymap = {
         preset = "default",
-        ["<Right>"] = { "select_and_accept" },
+        ["<Right>"] = { "select_and_accept", "fallback" },
       },
       cmdline = { keymap = { preset = "inherit"} },
     },
