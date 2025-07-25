@@ -21,10 +21,10 @@ return {
       })
     end,
   },
-  {
-    "numToStr/Comment.nvim",
-    opts = {},
-  },
+  -- {
+  --   "numToStr/Comment.nvim",
+  --   opts = {},
+  -- },
   -- {
   --   "lukas-reineke/indent-blankline.nvim",
   --   main = "ibl",
