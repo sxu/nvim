@@ -18,4 +18,5 @@ return {
       vim.g.sonokai_style = "default"
     end,
   },
+  { "EdenEast/nightfox.nvim" },
 }

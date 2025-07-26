@@ -13,6 +13,9 @@ return {
       },
       -- input = { enabled = true },
       picker = {
+        layout = {
+          layout = { height = 0.95, width = 0.95 },
+        },
         sources = {
           command_history = {
             sort = { fields = { "idx", "score:desc"} },
