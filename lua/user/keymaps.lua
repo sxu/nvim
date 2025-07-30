@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
-map({"n", "v"}, "<Space>", "10j")
-map({"n", "v"}, "<Backspace>", "10k")
+map({ "n", "x" }, "<Space>", "10j")
+map({ "n", "x" }, "<Backspace>", "10k")
 map("n", "<C-H>", "<C-W>h")
 map("n", "<C-J>", "<C-W>j")
 map("n", "<C-K>", "<C-W>k")
@@ -9,6 +9,8 @@ map("n", "<C-L>", "<C-W>l")
 map("n", "<C-N>", "<Cmd>bnext<CR>")
 map("n", "<C-P>", "<Cmd>bprevious<CR>")
 map("n", "<Leader>\\", ":nohlsearch<CR>")
+map("n", "gln", "<Cmd>lua vim.lsp.buf.rename()")
+map({ "n", "x" }, , "gla", "<Cmd>lua vim.lsp.buf.code_action()")
 -- map("x", "\"'", "<Esc>`>a'<Esc>`<i'<Esc>", { remap = false })
 -- map("x", "\"\"", "<Esc>`>a\"<Esc>`<i\"<Esc>", { remap = false })
 -- map("x", "\"(", "<Esc>`>a)<Esc>`<i(<Esc>", { remap = false })
