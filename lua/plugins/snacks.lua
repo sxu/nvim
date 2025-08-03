@@ -3,48 +3,113 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    opts = {
-      -- bigfile = { enabled = true },
-      -- dashboard = { enabled = true },
-      explorer = { replace_netrw = true },
-      indent = {
-        indent = { char = "▏" },
-        -- scope = { enabled = false },
-        animate = { enabled = false },
-      },
-      -- input = { enabled = true },
-      picker = {
-        layout = {
-          layout = { height = 0.95, width = 0.95 },
+    opts = function()
+      local lsp_symbols_searching = false
+      local lsp_symbols_picker_ref ---@type snacks.Picker.ref
+      return {
+        -- bigfile = { enabled = true },
+        -- dashboard = { enabled = true },
+        explorer = { replace_netrw = true },
+        indent = {
+          indent = { char = "▏" },
+          -- scope = { enabled = false },
+          animate = { enabled = false },
         },
-        sources = {
-          command_history = {
-            sort = { fields = { "idx", "score:desc"} },
+        -- input = { enabled = true },
+        picker = {
+          layout = {
+            layout = { height = 0.95, width = 0.95 },
           },
-          search_history = {
-            sort = { fields = { "idx", "score:desc"} },
-          },
-          lines = { layout = { preset = "default" , preview = true} },
-          pickers = { layout = { preview = false} },
-          explorer = {
-            win = {
-              list = {
-                keys = {
-                  ["-"] = "explorer_up",
-                  ["C"] = "tcd",
+          sources = {
+            command_history = {
+              sort = { fields = { "idx", "score:desc"} },
+            },
+            search_history = {
+              sort = { fields = { "idx", "score:desc"} },
+            },
+            lines = { layout = { preset = "default" , preview = true} },
+            pickers = { layout = { preview = false} },
+            explorer = {
+              win = {
+                list = {
+                  keys = {
+                    ["-"] = "explorer_up",
+                    ["C"] = "tcd",
+                  },
                 },
               },
             },
+            lsp_symbols = {
+              tree = true,
+              filter = {
+                transform = function(picker, filter)
+                  lsp_symbols_picker_ref = picker:ref()
+                  local s = not filter:is_empty()
+                  if lsp_symbols_searching ~= s then
+                    lsp_symbols_searching = s
+                    filter.meta.searching = lsp_symbols_searching
+                    return true
+                  end
+                end,
+              },
+              matcher = {
+                on_match = function(matcher, item)
+                  if not lsp_symbols_searching then
+                    return
+                  end
+                  local picker = lsp_symbols_picker_ref.value
+                  -- Add parent symbols to matching items
+                  if picker and item.score > 0 then
+                    item.child_match_only = false
+                    local parent = item.parent
+                    while parent do
+                      -- if parent.score == 0 or parent.match_tick ~= matcher.tick then
+                      if (parent.score == 0 or parent.match_tick ~= matcher.tick) and parent.name ~= nil then
+                        parent.score = 1
+                        parent.child_match_only = true
+                        parent.match_tick = matcher.tick
+                        parent.match_topk = nil
+                        picker.list:add(parent)
+                      else
+                        break
+                      end
+                      parent = parent.parent
+                    end
+                  end
+                end,
+                on_done = function()
+                  if not lsp_symbols_searching then
+                    return
+                  end
+                  local picker = lsp_symbols_picker_ref.value
+                  if not picker or picker.closed then
+                    return
+                  end
+                  for item, idx in picker:iter() do
+                    if not item.child_match_only then
+                      picker.list:view(idx)
+                      return
+                    end
+                  end
+                end,
+              },
+              sort = function(a, b)
+                if a.pos[1] == b.pos[1] then
+                  return a.pos[2] < b.pos[2]
+                end
+                return a.pos[1] < b.pos[1]
+              end,
+            },
           },
         },
-      },
-      -- notifier = { enabled = true },
-      -- quickfile = { enabled = true },
-      -- scope = { enabled = true },
-      -- scroll = { enabled = true },
-      -- statuscolumn = { enabled = true },
-      -- words = { enabled = true },
-    },
+        -- notifier = { enabled = true },
+        -- quickfile = { enabled = true },
+        -- scope = { enabled = true },
+        -- scroll = { enabled = true },
+        -- statuscolumn = { enabled = true },
+        -- words = { enabled = true },
+      }
+    end,
     keys = {
       { "<Leader>c", mode = { "n" }, function() Snacks.picker.pickers() end },
       { "<Leader>f", mode = { "n" }, function() Snacks.picker.files() end },
