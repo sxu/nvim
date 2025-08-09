@@ -11,4 +11,3 @@ opt.number = true
 opt.signcolumn = "number"
 opt.smartcase = true
 opt.termguicolors = true
-opt.winborder = "rounded"

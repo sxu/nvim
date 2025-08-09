@@ -18,11 +18,9 @@ return {
     "Saghen/blink.cmp",
     version = "1.*",
     opts = {
-      -- completion = {
-      --   list = { selection = { preselect = false, auto_insert = true } },
-      -- },
       keymap = {
         preset = "default",
+        ["<Left>"] = { "hide", "fallback" },
         ["<Right>"] = { "select_and_accept", "fallback" },
       },
       cmdline = { keymap = { preset = "inherit"} },

@@ -7,7 +7,7 @@ return {
       local lsp_symbols_searching = false
       local lsp_symbols_picker_ref ---@type snacks.Picker.ref
       return {
-        bigfile = { enabled = true },
+        -- bigfile = { enabled = true },
         -- dashboard = { enabled = true },
         explorer = { replace_netrw = true },
         indent = {
