@@ -7,7 +7,7 @@ return {
       local lsp_symbols_searching = false
       local lsp_symbols_picker_ref ---@type snacks.Picker.ref
       return {
-        -- bigfile = { enabled = true },
+        bigfile = { enabled = true },
         -- dashboard = { enabled = true },
         explorer = { replace_netrw = true },
         indent = {
@@ -111,13 +111,15 @@ return {
       }
     end,
     keys = {
-      { "<Leader>c", mode = { "n" }, function() Snacks.picker.pickers() end },
-      { "<Leader>f", mode = { "n" }, function() Snacks.picker.files() end },
-      { "<Leader>b", mode = { "n" }, function() Snacks.picker.buffers() end },
-      { "<Leader>s", mode = { "n" }, function() Snacks.picker.lines() end },
-      { "<Leader>a", mode = { "n" }, function() Snacks.picker.grep_buffers() end },
-      { "<Leader>:", mode = { "n" }, function() Snacks.picker.command_history() end },
-      -- { "<Leader>/", mode = { "n" }, function() Snacks.picker.search_history() end },
+      { "<Leader><Tab>", mode = { "n" }, function() Snacks.picker.pickers() end, desc = "Pickers" },
+      { "<Leader>f", mode = { "n" }, function() Snacks.picker.files() end, desc = "Files" },
+      { "<Leader>h", mode = { "n" }, function() Snacks.picker.recent() end, desc = "Recent files" },
+      { "<Leader>b", mode = { "n" }, function() Snacks.picker.buffers() end, desc = "Buffers" },
+      { "<Leader>s", mode = { "n" }, function() Snacks.picker.lines() end, desc = "Fuzzy search current buffer" },
+      { "<Leader>a", mode = { "n" }, function() Snacks.picker.grep_buffers() end, desc = "Fuzzy search all buffers" },
+      { "<Leader>g", mode = { "n" }, function() Snacks.picker.grep() end, desc = "Grep" },
+      { "<Leader>:", mode = { "n" }, function() Snacks.picker.command_history() end, desc = "Command history" },
+      { "<Leader>/", mode = { "n" }, function() Snacks.picker.search_history() end, desc = "Search history" },
       {
         "<Leader>E",
         mode = { "n" },
@@ -127,6 +129,7 @@ return {
             auto_close = true,
           })
         end,
+        desc = "Explorer",
       },
       { "gd", mode = { "n" }, function() Snacks.picker.lsp_definitions() end },
       { "gD", mode = { "n" }, function() Snacks.picker.lsp_declarations() end },
