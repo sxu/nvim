@@ -17,6 +17,7 @@ return {
   {
     "Saghen/blink.cmp",
     version = "1.*",
+    event = "VeryLazy",
     opts = {
       keymap = {
         preset = "default",
@@ -28,6 +29,19 @@ return {
   },
   {
     "windwp/nvim-autopairs",
+    event = "VeryLazy",
     opts = {},
   },
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0",
+    event = "VeryLazy",
+    opts = {
+      normal = "gz",
+      insert = false,
+      visual = "gz",
+      change = "gzc",
+      delete = "gzd",
+    },
+  }
 }

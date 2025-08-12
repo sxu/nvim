@@ -12,7 +12,7 @@ return {
         explorer = { replace_netrw = true },
         indent = {
           indent = { char = "▏" },
-          -- scope = { enabled = false },
+          scope = { char = "▏" },
           animate = { enabled = false },
         },
         -- input = { enabled = true },

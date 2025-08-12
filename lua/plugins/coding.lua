@@ -21,8 +21,4 @@ return {
       })
     end,
   },
-  {
-    "NeogitOrg/neogit",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
 }
