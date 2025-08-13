@@ -37,11 +37,13 @@ return {
     version = "^3.0.0",
     event = "VeryLazy",
     opts = {
-      normal = "gz",
-      insert = false,
-      visual = "gz",
-      change = "gzc",
-      delete = "gzd",
+      keymaps = {
+        normal = "gz",
+        insert = false,
+        visual = "gz",
+        change = "gzc",
+        delete = "gzd",
+      },
     },
   }
 }
