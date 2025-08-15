@@ -38,11 +38,45 @@ return {
     event = "VeryLazy",
     opts = {
       keymaps = {
-        normal = "gz",
+        normal = "gs",
         insert = false,
-        visual = "gz",
-        change = "gzc",
-        delete = "gzd",
+        visual = "gs",
+        change = "gsc",
+        delete = "gsd",
+      },
+      surrounds = {
+        ["("] = {
+            add = { "(", ")" },
+            delete = "^(.)().-(.)()$",
+        },
+        [")"] = {
+            add = { "( ", " )" },
+            delete = "^(. ?)().-( ?.)()$",
+        },
+        ["{"] = {
+            add = { "{", "}" },
+            delete = "^(.)().-(.)()$",
+        },
+        ["}"] = {
+            add = { "{ ", " }" },
+            delete = "^(. ?)().-( ?.)()$",
+        },
+        ["["] = {
+            add = { "[", "]" },
+            delete = "^(.)().-(.)()$",
+        },
+        ["]"] = {
+            add = { "[ ", " ]" },
+            delete = "^(. ?)().-( ?.)()$",
+        },
+        ["<"] = {
+            add = { "<", ">" },
+            delete = "^(.)().-(.)()$",
+        },
+        [">"] = {
+            add = { "< ", " >" },
+            delete = "^(. ?)().-( ?.)()$",
+        },
       },
     },
   }
