@@ -16,6 +16,7 @@ return {
   },
   {
     "Saghen/blink.cmp",
+    cond = not vim.g.vscode,
     version = "1.*",
     event = "VeryLazy",
     opts = {

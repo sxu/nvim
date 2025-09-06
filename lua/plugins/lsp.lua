@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    cond = not vim.g.vscode,
     events = { "BufReadPre", "BufNewFile" },
     config = function()
       vim.lsp.enable("clangd")
