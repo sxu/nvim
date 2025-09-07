@@ -117,7 +117,7 @@ return {
       { "<Leader>h", mode = { "n" }, function() Snacks.picker.recent() end, desc = "Recent files" },
       { "<Leader>b", mode = { "n" }, function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<Leader>s", mode = { "n" }, function() Snacks.picker.lines() end, desc = "Fuzzy search current buffer" },
-      { "<Leader>a", mode = { "n" }, function() Snacks.picker.grep_buffers() end, desc = "Fuzzy search all buffers" },
+      { "<Leader>S", mode = { "n" }, function() Snacks.picker.grep_buffers() end, desc = "Fuzzy search all buffers" },
       { "<Leader>g", mode = { "n" }, function() Snacks.picker.grep() end, desc = "Grep" },
       { "<Leader>:", mode = { "n" }, function() Snacks.picker.command_history() end, desc = "Command history" },
       { "<Leader>/", mode = { "n" }, function() Snacks.picker.search_history() end, desc = "Search history" },
