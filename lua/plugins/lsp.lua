@@ -5,8 +5,9 @@ return {
     events = { "BufReadPre", "BufNewFile" },
     config = function()
       vim.lsp.enable("clangd")
-      vim.lsp.enable("rust_analyzer")
+      vim.lsp.enable("ocamllsp")
       vim.lsp.enable("pyright")
+      vim.lsp.enable("rust_analyzer")
     end,
   },
 }
