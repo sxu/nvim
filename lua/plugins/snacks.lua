@@ -10,12 +10,12 @@ return {
       return {
         -- bigfile = { enabled = true },
         -- dashboard = { enabled = true },
-        explorer = { replace_netrw = true },
-        indent = {
-          indent = { char = "▏" },
-          scope = { char = "▏" },
-          animate = { enabled = false },
-        },
+        -- explorer = { replace_netrw = true },
+        -- indent = {
+        --   indent = { char = "▏" },
+        --   scope = { char = "▏" },
+        --   animate = { enabled = false },
+        -- },
         -- input = { enabled = true },
         picker = {
           layout = {
