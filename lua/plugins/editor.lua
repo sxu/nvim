@@ -24,6 +24,7 @@ return {
         preset = "default",
         ["<Left>"] = { "hide", "fallback" },
         ["<Right>"] = { "select_and_accept", "fallback" },
+        ["<CR>"] = { "select_and_accept", "fallback" },
       },
       cmdline = { keymap = { preset = "inherit"} },
     },
