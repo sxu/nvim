@@ -6,5 +6,3 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 
 local map = vim.keymap.set
-
-map("i", ";;", "std::")
