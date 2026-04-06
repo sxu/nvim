@@ -2,25 +2,20 @@ return {
   { "nvim-lua/plenary.nvim" },
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     lazy = false,
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "cpp",
-          "haskell",
-          "lua",
-          "markdown",
-          "ocaml",
-          "python",
-          "rust",
-          "vim",
-          "vimdoc",
-        },
-        highlight = {
-          enable = true,
-        },
+      require("nvim-treesitter").install({
+        "cpp",
+        "haskell",
+        "lua",
+        "markdown",
+        "ocaml",
+        "python",
+        "rust",
+        "vim",
+        "vimdoc",
       })
     end,
   },
