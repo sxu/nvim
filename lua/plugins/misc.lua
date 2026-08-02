@@ -19,4 +19,22 @@ return {
       })
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    branch = "master",
+    lazy = false,
+    opts = {
+      enable = true,
+      multiwindow = false,
+      max_lines = 5,
+      min_window_height = 20,
+      line_numbers = true,
+      multiline_threshold = 1,
+      trim_scope = "inner",
+      mode = "topline",
+      separator = nil,
+      zindex = 20,
+      on_attach = nil,
+    },
+  }
 }

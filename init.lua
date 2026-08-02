@@ -1,6 +1,7 @@
 require("user.options")
 require("user.plugins")
 require("user.keymaps")
+require("user.commands")
 if not vim.g.vscode then
   vim.cmd.colorscheme("gruvbox-material")
   vim.api.nvim_create_autocmd("VimLeave", {
